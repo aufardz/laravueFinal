@@ -1,14 +1,26 @@
-
-import {createApp} from 'vue';
-
 require('./bootstrap');
 
+import Vue from 'vue';
+import VueRouter from 'vue-router'
 
-import App from './App.vue';
-import axios from 'axios';
-import router from './router';
+Vue.use(VueRouter)
 
-const app = createApp(App);
-app.config.globalProperties.$axios = axios;
-app.use(router);
-app.mount('#app');
+import App from './components/App.vue'
+
+const router = new VueRouter({
+  mode: 'history',
+  routes: [
+        
+  ],
+})
+
+new Vue({
+  el: '#app',
+  components: { App },
+  router,
+});
+
+// const app = createApp(App);
+// app.config.globalProperties.$axios = axios;
+// app.use(router);
+// app.mount('#app');
